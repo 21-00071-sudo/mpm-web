@@ -1,7 +1,7 @@
 @extends('layouts.guest')
 
 @section('content')
-    <form action="" method="" class="flex flex-col bg-white p-10 rounded-lg shadow-xl w-96 gap-4">
+    <form action="{{ route('login.authenticate') }}" method="POST" class="flex flex-col bg-white p-10 rounded-lg shadow-xl w-96 gap-4">
         @csrf
 
         <h2 class="text-center font-bold text-3xl text-gray-800">LOGIN</h2>
