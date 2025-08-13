@@ -6,6 +6,16 @@
 
         <h2 class="text-center font-bold text-3xl text-gray-800">LOGIN</h2>
 
+        @if ($errors->any())
+            <div class="text-xs text-center bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div>
             <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
             <div class="mt-1 relative">
