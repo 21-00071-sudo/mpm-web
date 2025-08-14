@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MPM | DTC</title>
+    <title>DTC | MPM</title>
 
      @vite('resources/css/app.css')
 </head>
 <body class="flex min-h-screen">
+
+    <x-sidebar></x-sidebar>
     
     <div class="flex-1 flex flex-col">
         <x-header></x-header>
