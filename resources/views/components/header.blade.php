@@ -2,7 +2,7 @@
     <i class="fa-solid fa-bars fa-xl text-gray-700"></i>
 
     <div class="font-bold text-xl pl-4 ">
-         <span class="text-red-500 font-semibold">DTC</span><span class="border-l border-gray-500 mx-1"></span>Monitoring and Project Management 
+         <span class="text-red-600 font-semibold">DTC</span><span class="border-l border-gray-500 mx-1"></span>Monitoring and Project Management 
     </div>
 
     <div class="ml-auto flex">
