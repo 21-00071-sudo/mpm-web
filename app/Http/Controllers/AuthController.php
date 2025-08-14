@@ -57,12 +57,4 @@ class AuthController extends Controller
 
         return redirect('/');
     }
-
-    public function dashboard() {
-
-        $user = Auth::authenticate();
-
-        return view('dashboard', ['user' => $user]);
-    }
-
 }
