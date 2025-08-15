@@ -16,8 +16,8 @@
     <div class="flex-1 flex flex-col">
         <x-header></x-header>
 
-        <main class="m-6">
-            <h1 class="text-4xl font-bold">@yield('title')</h1>
+        <main class="my-6 mx-20">
+            <h1 class="text-4xl font-bold mb-6">@yield('title')</h1>
 
             @yield('content')
         </main>

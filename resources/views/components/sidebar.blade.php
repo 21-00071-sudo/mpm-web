@@ -11,7 +11,7 @@
     <nav class="flex flex-grow">
         <ul id="navigation" class="text-gray-50 flex-1">
             <li>
-                <a href="#"
+                <a href={{ route('dashboard') }}
                     class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
                     <i class="fas fa-home fa-xl"></i>
                     <span class="text-xl whitespace-nowrap overflow-hidden">Home</span>
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li>
-                <a href="#"
+                <a href={{ route('users.index') }}
                     class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
                     <i class="fas fa-users fa-xl"></i>
                     <span class="text-xl whitespace-nowrap overflow-hidden">Users</span>
