@@ -17,7 +17,7 @@
         <x-header></x-header>
 
         <main class="m-6">
-            <h1 class="text-4xl font-bold">Hello, {{ $user->name }}!</h1>
+            <h1 class="text-4xl font-bold">@yield('title')</h1>
 
             @yield('content')
         </main>
