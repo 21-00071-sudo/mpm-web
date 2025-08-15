@@ -1,5 +1,7 @@
 <header class="bg-white p-6 flex flex-row items-center shadow-md">
-    <i class="fa-solid fa-bars fa-xl text-gray-700"></i>
+    <button id="toggleBtn">
+        <i class="fa-solid fa-bars fa-xl text-gray-700"></i>
+    </button>
 
     <div class="ml-auto flex">
         <a href="#">
