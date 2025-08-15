@@ -22,6 +22,9 @@
             @yield('content')
         </main>
     </div>
+
+    <x-logout></x-logout>
+
 </body>
 
 </html>
