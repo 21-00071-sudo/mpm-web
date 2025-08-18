@@ -17,7 +17,6 @@
         <x-header></x-header>
 
         <main class="my-6 mx-20">
-            <h1 class="text-4xl font-bold mb-6">@yield('title')</h1>
 
             @yield('content')
         </main>
