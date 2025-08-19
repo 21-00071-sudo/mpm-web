@@ -18,6 +18,7 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs  uppercase tracking-wider">Username</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs  uppercase tracking-wider">Email</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs  uppercase tracking-wider">Role</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs  uppercase tracking-wider"></th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-red-50">
@@ -35,6 +36,15 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm" style="text-transform: uppercase;">
                                 {{ $user->role }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-red-500 hover:text-red-700"
+                                style="text-transform: uppercase;">
+                                <form action={{ route('users.destroy', $user->id) }} method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit"> <i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

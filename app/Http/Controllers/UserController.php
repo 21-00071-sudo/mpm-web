@@ -53,4 +53,11 @@ class UserController extends Controller
 
         return view('users.create', ['user' => $user]);
     }
+
+    public function destroy(User $user) {
+
+        $user->delete();
+
+        return redirect()->route('users.index');
+    }
 }
