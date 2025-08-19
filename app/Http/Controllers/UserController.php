@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function generateCredentials(string $role) {
 
-        $username = Str::slug($role) . rand(100, 999);
+        $username = Str::slug($role) . '-' . rand(1000, 9999);
         $password = Str::random(8);
 
         return [

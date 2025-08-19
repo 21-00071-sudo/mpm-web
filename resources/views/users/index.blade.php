@@ -31,7 +31,7 @@
                                 {{ $user->username }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                {{ $user->email }}
+                                {{ $user->email ?? 'N/A' }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm" style="text-transform: uppercase;">
                                 {{ $user->role }}

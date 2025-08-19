@@ -8,7 +8,6 @@
             class="flex flex-col bg-white p-10 rounded-lg shadow-xl w-1/2 gap-4">
             @csrf
 
-
             <div class="flex flex-col w-auto">
                 <label for="name" class="text-lg font-semibold text-gray-700">Name</label>
                 <input type="text" id="name" name="name" maxlength="150" required
@@ -31,22 +30,6 @@
                     </div>
                 </div>
             </div>
-
-
-            {{-- <div class="flex flex-row gap-6">
-                <div class="flex flex-col w-1/2">
-                    <label for="username" class="text-lg font-semibold text-gray-700">Username</label>
-                    <input type="text" id="username" name="username" required
-                        class="bg-gray-100 rounded-md border border-gray-300 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors">
-                </div>
-                <div class="flex flex-col w-1/2">
-                    <label for="password" class="text-lg font-semibold text-gray-700">Password</label>
-                    <input type="text" id="password" name="password" required
-                        class="bg-gray-100 rounded-md border border-gray-300 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors">
-                </div>
-            </div> --}}
-
-            <button></button>
 
             <button type="submit"
                 class="bg-red-500 text-gray-50 px-4 h-10 rounded-md shadow-lg font-semibold hover:bg-red-600 transition-colors">Add</button>
