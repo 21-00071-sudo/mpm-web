@@ -1,7 +1,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <h1 class="text-4xl font-bold mb-6">Add User</h1>
+    <div class="text-4xl font-bold mb-6">
+        <a href={{ route('users.index') }}
+            class="hover:text-gray-600 hover:underline transition-colors duration-200">User</a><i
+            class="fa fa-angle-right"></i><a href={{ route('users.create') }}
+            class="hover:text-gray-600 hover:underline transition-colors duration-200">Create User</a>
+    </div>
     <div class="flex justify-center items-center">
 
         <form action={{ route('users.store') }} method="POST"
