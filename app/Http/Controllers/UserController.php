@@ -51,7 +51,7 @@ class UserController extends Controller
 
         $user->plain_password = $credentials['password'];
 
-        return view('users.create', ['user' => $user]);
+        return redirect()->route('users.create')->with('user', $user);
     }
 
     public function destroy(User $user) {
