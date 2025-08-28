@@ -21,7 +21,7 @@ class ProjectFactory extends Factory
             'user_id' => User::inRandomOrder()->first()->id,
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
-            'status' => fake()->randomElement(["not_started", 'in_progress', 'completed', 'delayed']),
+            'status' => fake()->randomElement(["pending", 'in_progress', 'completed', 'delayed']),
             'deadline' => fake()->date(),
         ];
     }

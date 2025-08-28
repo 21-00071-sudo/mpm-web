@@ -21,4 +21,19 @@ class Project extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+
+    public function getFormattedStatusAttribute() {
+        return strtoupper(str_replace('_', ' ', $this->status));
+    }
+
+    public function getStatusColorAttribute() {
+        $colors = [
+            'completed' => 'bg-green-100 text-green-800',
+            'in_progress' => 'bg-yellow-100 text-yellow-800',
+            'pending' => 'bg-gray-100 text-gray-800',
+            'delayed' => 'bg-red-100 text-red-800',
+        ];
+
+        return $colors[$this->status];
+    }
 }
