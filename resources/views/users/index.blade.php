@@ -40,12 +40,9 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-red-500 hover:text-red-700"
                                 style="text-transform: uppercase;">
-                                <form action={{ route('users.destroy', $user->id) }} method="POST">
-                                    @csrf
-                                    @method('DELETE')
 
-                                    <button type="submit"> <i class="fas fa-trash"></i></button>
-                                </form>
+                                <button id="delete-btn" onclick="deleteUser({{ $user->id }})"><i
+                                        class="fas fa-trash"></i></button>
                             </td>
                         </tr>
                     @endforeach
@@ -56,4 +53,6 @@
 
         {{ $users->links() }}
     </div>
+
+    <x-delete-confirmation-modal></x-delete-confirmation-modal>
 @endsection
