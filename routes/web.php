@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +11,8 @@ Route::post('/login', [AuthController::class, 'authenticate'])->name('login.auth
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 Route::middleware('is_admin')->group(function() {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href={{ route('projects.index') }}
                         class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
                         <i class="fas fa-diagram-project fa-xl"></i>
                         <span class="text-xl whitespace-nowrap overflow-hidden">Projects</span>
