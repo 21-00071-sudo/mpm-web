@@ -15,6 +15,9 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
+Route::view('/tasks', 'tasks.index')->name('tasks.index');
+Route::view('/files', 'files.index')->name('files.index');
+
 Route::middleware('is_admin')->group(function() {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
