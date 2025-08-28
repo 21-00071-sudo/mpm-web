@@ -5,46 +5,49 @@
             <h1 class="font-bold overflow-hidden">{{ Auth::user()->name }}</h1>
             <p class="text-xs overflow-hidden" style="text-transform: uppercase;">{{ Auth::user()->role }}</p>
         </div>
-    @endauth
 
-    <hr class="my-4 border-gray-50" />
-    <nav class="flex flex-grow">
-        <ul id="navigation" class="text-gray-50 flex-1">
-            <li>
-                <a href={{ route('dashboard') }}
-                    class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
-                    <i class="fas fa-home fa-xl"></i>
-                    <span class="text-xl whitespace-nowrap overflow-hidden">Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
-                    <i class="fas fa-diagram-project fa-xl"></i>
-                    <span class="text-xl whitespace-nowrap overflow-hidden">Projects</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
-                    <i class="fas fa-list-check fa-xl"></i>
-                    <span class="text-xl whitespace-nowrap overflow-hidden">Tasks</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
-                    <i class="fas fa-folder fa-xl"></i>
-                    <span class="text-xl whitespace-nowrap overflow-hidden">Files</span>
-                </a>
-            </li>
-            <li>
-                <a href={{ route('users.index') }}
-                    class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
-                    <i class="fas fa-users fa-xl"></i>
-                    <span class="text-xl whitespace-nowrap overflow-hidden">Users</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+
+        <hr class="my-4 border-gray-50" />
+        <nav class="flex flex-grow">
+            <ul id="navigation" class="text-gray-50 flex-1">
+                <li>
+                    <a href={{ route('dashboard') }}
+                        class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
+                        <i class="fas fa-home fa-xl"></i>
+                        <span class="text-xl whitespace-nowrap overflow-hidden">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
+                        <i class="fas fa-diagram-project fa-xl"></i>
+                        <span class="text-xl whitespace-nowrap overflow-hidden">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
+                        <i class="fas fa-list-check fa-xl"></i>
+                        <span class="text-xl whitespace-nowrap overflow-hidden">Tasks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
+                        <i class="fas fa-folder fa-xl"></i>
+                        <span class="text-xl whitespace-nowrap overflow-hidden">Files</span>
+                    </a>
+                </li>
+                @if (Auth::user()->role === 'admin')
+                    <li>
+                        <a href={{ route('users.index') }}
+                            class="flex flex-1 items-center p-2 gap-2 rounded-md hover:bg-gray-50 hover:text-red-500 transition-all duration-300">
+                            <i class="fas fa-users fa-xl"></i>
+                            <span class="text-xl whitespace-nowrap overflow-hidden">Users</span>
+                        </a>
+                    </li>
+                @endif
+            </ul>
+        </nav>
+    @endauth
 </aside>

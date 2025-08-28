@@ -1,4 +1,4 @@
-<div id="popupOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-20 hidden items-center justify-center fade-in">
+<div id="logoutPopupOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-20 hidden items-center justify-center fade-in">
     <div id="popupModal" class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full scale-in">
 
         <div class="flex justify-center items-center mb-4">
@@ -8,7 +8,7 @@
         <p class="text-gray-600 mb-6 text-center">Are you sure you want to log out of your account?</p>
 
         <div class="flex justify-center space-x-3">
-            <button id="cancelBtn"
+            <button id="logoutCancelBtn"
                 class="px-4 py-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors duration-200">
                 Cancel
             </button>
@@ -25,23 +25,23 @@
 
 <script>
     const logoutBtn = document.getElementById('logoutBtn');
-    const popupOverlay = document.getElementById('popupOverlay');
-    const cancelBtn = document.getElementById('cancelBtn');
+    const logoutPopupOverlay = document.getElementById('logoutPopupOverlay');
+    const logoutCancelBtn = document.getElementById('logoutCancelBtn');
     const logoutForm = document.getElementById('logout-form');
 
     function showPopup() {
-        popupOverlay.style.display = 'flex';
+        logoutPopupOverlay.style.display = 'flex';
     }
 
     function hidePopup() {
-        popupOverlay.style.display = 'none';
+        logoutPopupOverlay.style.display = 'none';
     }
 
     logoutBtn.addEventListener('click', showPopup);
-    cancelBtn.addEventListener('click', hidePopup);
+    logoutCancelBtn.addEventListener('click', hidePopup);
 
-    popupOverlay.addEventListener('click', (event) => {
-        if (event.target === popupOverlay) {
+    logoutPopupOverlay.addEventListener('click', (event) => {
+        if (event.target === logoutPopupOverlay) {
             hidePopup();
         }
     });
