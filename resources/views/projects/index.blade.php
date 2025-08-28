@@ -28,9 +28,9 @@
                                 {{ $project->formatted_status }}
                             </span>
                         </div>
-                        <a href="#"
+                        <a href={{ route('projects.show', $project->id) }}
                             class="w-full text-center bg-red-500 text-white font-semibold py-2 px-4 rounded-md inline-block hover:bg-red-600 transition-colors">
-                            View Project
+                            Select
                         </a>
                     </div>
                 </div>

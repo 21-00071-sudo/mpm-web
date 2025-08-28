@@ -13,6 +13,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 
 Route::middleware('is_admin')->group(function() {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
