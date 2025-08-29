@@ -33,7 +33,7 @@ class Project extends Model
     public function getStatusColorAttribute() {
         $colors = [
             'completed' => 'bg-green-100 text-green-800',
-            'in_progress' => 'bg-yellow-100 text-amber-800',
+            'in_progress' => 'bg-yellow-100 text-yellow-800',
             'pending' => 'bg-gray-100 text-gray-800',
             'delayed' => 'bg-red-100 text-red-800',
         ];
