@@ -30,15 +30,20 @@
                 </div>
             </div>
 
-            <div class="flex justify-end mt-auto">
-                <a href=#
+            <div class="flex justify-end mt-auto gap-2">
+                <form action="" method="">
+                    <button type="submit"
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">Mark
+                        as Complete</button>
+                </form>
+                <a href={{ route('projects.edit', $project) }}
                     class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">
-                    Update
+                    Update Info
                 </a>
             </div>
         </div>
 
-
+        {{-- TODO: Replace with actual content --}}
         <div class="flex gap-4">
             <div class="bg-white rounded-xl shadow-md p-6 w-1/2">
                 <h1 class="font-semibold text-xl">Tasks</h1>
@@ -60,6 +65,7 @@
                 </ul>
             </div>
 
+            {{-- TODO: Replace with actual content --}}
             <div class="bg-white rounded-xl shadow-md p-6 w-1/3">
                 <h1 class="font-semibold text-xl">Members</h1>
 
