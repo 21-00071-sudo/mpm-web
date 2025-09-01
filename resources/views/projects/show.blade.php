@@ -31,11 +31,10 @@
             </div>
 
             <div class="flex justify-end mt-auto gap-2">
-                <form action="" method="">
-                    <button type="submit"
-                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">Mark
-                        as Complete</button>
-                </form>
+
+                <button id="complete-btn" onclick="markAsCompleted({{ $project->id }})"
+                    class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">Mark
+                    as Complete</button>
                 <a href={{ route('projects.edit', $project) }}
                     class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">
                     Update Info
@@ -57,8 +56,8 @@
                             class="px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
                             IN PROGRESS</span></li>
                     <li class="flex justify-between">Lorem ipsum dolor sit amet consectetur adipisicing elit.<span
-                            class="px-3 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
-                            PENDING</span></li>
+                            class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                            COMPLETED</span></li>
                     <li class="flex justify-between">Lorem ipsum dolor sit amet consectetur adipisicing elit.<span
                             class="px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
                             COMPLETED</span></li>
@@ -84,4 +83,6 @@
             </div>
         </div>
     </div>
+
+    <x-complete-confirmation-modal></x-complete-confirmation-modal>
 @endsection

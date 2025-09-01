@@ -15,6 +15,7 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::get('project/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+Route::post('/projects/{project}/complete', [ProjectController::class, 'updateStatus'])->name('projects.complete');
 
 Route::view('/tasks', 'tasks.index')->name('tasks.index');
 Route::view('/files', 'files.index')->name('files.index');

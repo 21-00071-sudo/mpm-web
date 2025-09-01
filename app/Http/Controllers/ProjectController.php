@@ -22,4 +22,12 @@ class ProjectController extends Controller
 
         return view('projects.edit', ['project' => $project]);
     }
+
+    public function updateStatus(Request $request, Project $project) {
+        
+        $project->status = 'completed';
+        $project->save();
+
+        return back()->with('success', 'Project marked as completed');
+    }
 }
