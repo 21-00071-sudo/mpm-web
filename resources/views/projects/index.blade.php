@@ -6,9 +6,11 @@
             <a href={{ route('projects.index') }}
                 class="text-4xl font-bold mb-6 hover:text-gray-600 hover:underline transition-colors duration-200">Projects</a>
 
-            <a href=#
-                class="bg-red-500 text-gray-50 font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-600 transition-colors m-0">Create
-                Project</a>
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'staff')
+                <a href=#
+                    class="bg-red-500 text-gray-50 font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-600 transition-colors m-0">Create
+                    Project</a>
+            @endif
         </div>
 
         <div class="flex flex-wrap -mx-2 gap-4">

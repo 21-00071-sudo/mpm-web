@@ -30,16 +30,18 @@
                 </div>
             </div>
 
-            <div class="flex justify-end mt-auto gap-2">
-
-                <button id="complete-btn" onclick="markAsCompleted({{ $project->id }})"
-                    class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">Mark
-                    as Complete</button>
-                <a href={{ route('projects.edit', $project) }}
-                    class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">
-                    Update Info
-                </a>
-            </div>
+            @if (Auth::user()->role === 'admin' || Auth::user()->role === 'staff')
+                <div class="flex justify-end mt-auto gap-2">
+                    <button id="complete-btn"
+                        @if ($project->status !== 'completed') onclick="markAsCompleted({{ $project->id }})" @endif
+                        class="px-4 py-2 text-sm font-medium text-white {{ $project->status === 'completed' ? 'bg-red-600' : 'bg-red-500' }} {{ $project->status === 'completed' ? 'disabled' : '' }} rounded-lg shadow hover:bg-red-600 transition">Mark
+                        as Complete</button>
+                    <a href={{ route('projects.edit', $project) }}
+                        class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">
+                        Update Info
+                    </a>
+                </div>
+            @endif
         </div>
 
         {{-- TODO: Replace with actual content --}}

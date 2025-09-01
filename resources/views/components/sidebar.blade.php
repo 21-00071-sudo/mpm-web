@@ -1,6 +1,7 @@
 <aside id="sidebar" class="flex flex-col h-screen bg-red-500 w-64 shadow-lg p-4 transition-all duration-300">
     @auth
         <div class="flex flex-col justify-center items-center text-gray-50 transition-all duration-300">
+            {{-- TODO: Create dynamic user icon based on uploaded profile image --}}
             <i id="user-icon" class="fa-solid fa-circle-user text-7xl mb-4"></i>
             <h1 class="font-bold overflow-hidden">{{ Auth::user()->name }}</h1>
             <p class="text-xs overflow-hidden" style="text-transform: uppercase;">{{ Auth::user()->role }}</p>
