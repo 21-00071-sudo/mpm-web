@@ -80,15 +80,11 @@
 
                 <hr class="my-4">
                 <ul class="space-y-2">
-                    <li class="flex justify-start"><span
-                            class="px-3 py-1 mr-2 min-w-24 text-xs font-semibold rounded-full bg-gray-100 text-gray-800"><i
-                                class="fas fa-user mr-2"></i>ADMIN</span>John Doe</li>
-                    <li class="flex justify-start"><span
-                            class="px-3 py-1 mr-2 min-w-24 text-xs font-semibold rounded-full bg-gray-100 text-gray-800"><i
-                                class="fas fa-user mr-2"></i>STAFF</span>Jane Doe</li>
-                    <li class="flex justify-start"><span
-                            class="px-3 py-1 mr-2 min-w-24 text-xs font-semibold rounded-full bg-gray-100 text-gray-800"><i
-                                class="fas fa-user"></i>STUDENT</span>Foo Bar</li>
+                    @foreach ($assignedUsers as $user)
+                        <li class="flex justify-start"><span
+                                class="px-3 py-1 mr-2 min-w-24 text-xs font-semibold rounded-full bg-gray-100 text-gray-800"><i
+                                    class="fas fa-user mr-2"></i>{{ $user->role }}</span>{{ $user->name }}</li>
+                    @endforeach
                 </ul>
             </div>
         </div>

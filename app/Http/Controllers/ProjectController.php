@@ -16,7 +16,9 @@ class ProjectController extends Controller
 
     public function show(Project $project) {
         
-        return view('projects.show', ['project' => $project]);
+        $assignedUsers = $project->users;
+
+        return view('projects.show', ['project' => $project, 'assignedUsers' => $assignedUsers]);
     }
 
     public function create() {
