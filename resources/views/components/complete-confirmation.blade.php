@@ -1,4 +1,4 @@
-<div id="popupOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-20 hidden items-center justify-center fade-in">
+<div id="completePopupOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-20 hidden items-center justify-center fade-in">
     <div id="completePopupModal" class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full scale-in">
 
         <div class="flex justify-center items-center mb-4">
@@ -26,16 +26,16 @@
 
 <script>
     const completeBtn = document.getElementById('complete-btn');
-    const popupOverlay = document.getElementById('popupOverlay');
+    const completePopupOverlay = document.getElementById('completePopupOverlay');
     const completeCancelBtn = document.getElementById('completeCancelBtn');
     const modalForm = document.getElementById('complete-modal-form');
 
     function showCompletePopup() {
-        popupOverlay.style.display = 'flex';
+        completePopupOverlay.style.display = 'flex';
     }
 
     function hideCompletePopup() {
-        popupOverlay.style.display = 'none';
+        completePopupOverlay.style.display = 'none';
     }
 
     function markAsCompleted(projectId) {
@@ -48,8 +48,8 @@
 
     completeCancelBtn.addEventListener('click', hideCompletePopup);
 
-    popupOverlay.addEventListener('click', (event) => {
-        if (event.target === popupOverlay) {
+    completePopupOverlay.addEventListener('click', (event) => {
+        if (event.target === completePopupOverlay) {
             hideCompletePopup();
         }
     });

@@ -30,4 +30,11 @@ class ProjectController extends Controller
 
         return back()->with('success', 'Project marked as completed');
     }
+
+    public function destroy(Project $project) {
+        
+        $project->delete();
+
+        return redirect()->route('projects.index')->with('success', 'Project deleted');
+    }
 }

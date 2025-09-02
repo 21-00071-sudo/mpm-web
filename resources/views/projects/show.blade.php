@@ -31,7 +31,7 @@
             </div>
 
             @if (Auth::user()->role === 'admin' || Auth::user()->role === 'staff')
-                <div class="flex justify-end mt-auto gap-2">
+                <div class="flex justify-end mt-6 gap-2">
                     <button id="complete-btn"
                         @if ($project->status !== 'completed') onclick="markAsCompleted({{ $project->id }})" @endif
                         class="px-4 py-2 text-sm font-medium text-white {{ $project->status === 'completed' ? 'bg-red-600' : 'bg-red-500' }} {{ $project->status === 'completed' ? 'disabled' : '' }} rounded-lg shadow hover:bg-red-600 transition">Mark
@@ -40,6 +40,8 @@
                         class="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg shadow hover:bg-red-600 transition">
                         Update Info
                     </a>
+                    <button id="delete-btn" onclick="deleteProject({{ $project->id }})"><i
+                            class="fas fa-trash text-red-500 text-xl hover:text-red-600 transition"></i></button>
                 </div>
             @endif
         </div>
@@ -86,5 +88,7 @@
         </div>
     </div>
 
-    <x-complete-confirmation-modal></x-complete-confirmation-modal>
+    <x-complete-confirmation></x-complete-confirmation>
+
+    <x-project-delete-confirmation></x-project-delete-confirmation>
 @endsection
