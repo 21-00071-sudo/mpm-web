@@ -54,5 +54,5 @@
         {{ $users->links() }}
     </div>
 
-    <x-delete-confirmation-modal></x-delete-confirmation-modal>
+    <x-user-delete-confirmation></x-user-delete-confirmation>
 @endsection

@@ -1,5 +1,5 @@
 <div id="popupOverlay" class="fixed inset-0 bg-gray-900 bg-opacity-20 hidden items-center justify-center fade-in">
-    <div id="popupModal" class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full scale-in">
+    <div id="popupDeleteModal" class="bg-white rounded-xl shadow-2xl p-8 max-w-sm w-full scale-in">
 
         <div class="flex justify-center items-center mb-4">
             <h3 class="text-xl font-bold text-gray-800">CONFIRM DELETE</h3>
@@ -12,7 +12,7 @@
                 class="min-w-20 px-4 py-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 transition-colors duration-200">
                 Cancel
             </button>
-            <form id="modal-form" action="" method="POST">
+            <form id="delete-modal-form" action="" method="POST">
                 @csrf
                 @method('DELETE')
 
@@ -29,13 +29,13 @@
     const deleteBtn = document.getElementById('delete-btn');
     const popupOverlay = document.getElementById('popupOverlay');
     const cancelBtn = document.getElementById('cancelBtn');
-    const modalForm = document.getElementById('modal-form');
+    const modalForm = document.getElementById('delete-modal-form');
 
-    function showPopup() {
+    function showDeletePopup() {
         popupOverlay.style.display = 'flex';
     }
 
-    function hidePopup() {
+    function hideDeletePopup() {
         popupOverlay.style.display = 'none';
     }
 
@@ -43,20 +43,20 @@
         const baseRoute = "{{ route('users.destroy', ['user' => ':id']) }}";
         const actionUrl = baseRoute.replace(':id', userId);
 
-        document.getElementById('modal-form').action = actionUrl;
+        document.getElementById('delete-modal-form').action = actionUrl;
 
-        showPopup();
+        showDeletePopup();
     }
 
-    cancelBtn.addEventListener('click', hidePopup);
+    cancelBtn.addEventListener('click', hideDeletePopup);
 
     popupOverlay.addEventListener('click', (event) => {
         if (event.target === popupOverlay) {
-            hidePopup();
+            hideDeletePopup();
         }
     });
 
     modalForm.addEventListener('submit', (event) => {
-        hidePopup();
+        hideDeletePopup();
     });
 </script>
