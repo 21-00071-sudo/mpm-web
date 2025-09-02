@@ -40,7 +40,11 @@ class ProjectController extends Controller
 
         $validated['user_id'] = Auth::id();
 
-        Project::create($validated);
+        $project = Project::create($validated);
+
+        $project->users()->attach(Auth::id(), [
+            'role_in_project' => 'Owner'
+        ]);
 
         return redirect()->route('projects.index')->with('success', 'Project created');
     }

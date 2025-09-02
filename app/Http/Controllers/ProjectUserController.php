@@ -10,6 +10,8 @@ class ProjectUserController extends Controller
 {
     public function index(Project $project) {
         
-        return view('project-users.index', ['project' => $project, 'users' => User::all()]);
+        $assignedUsers = $project->users;
+
+        return view('project-users.index', ['project' => $project, 'users' => User::all(), 'assignedUsers' => $assignedUsers]);
     }
 }

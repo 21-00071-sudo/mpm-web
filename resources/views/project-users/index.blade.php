@@ -13,7 +13,7 @@
     <div class="flex justify-center items-center gap-4 h-full min-h-[calc(100vh-300px)]">
         <div class="bg-white shadow-md rounded-xl p-6 w-1/3">
             <h1 class="text-xl font-semibold mb-4">Available Users</h1>
-            <ul class="divide-y divide-gray-200 max-h-80 overflow-y-auto pr-2">
+            <ul class="divide-y divide-gray-200 min-h-80 overflow-y-auto pr-2">
                 @foreach ($users as $user)
                     <li class="flex items-center justify-between py-3">
                         <div class="flex items-center gap-3">
@@ -32,8 +32,8 @@
 
         <div class="bg-white shadow-md rounded-xl p-6 w-1/3">
             <h1 class="text-xl font-semibold mb-4">Project Members</h1>
-            <ul class="divide-y divide-gray-200 max-h-80 overflow-y-auto pr-2">
-                @foreach ($users as $user)
+            <ul class="divide-y divide-gray-200 min-h-80 overflow-y-auto pr-2">
+                @foreach ($assignedUsers as $user)
                     <li class="flex items-center justify-between py-3">
                         <div class="flex items-center gap-3">
                             <span class="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800">

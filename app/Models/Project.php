@@ -26,6 +26,10 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function users() {
+        return $this->belongsToMany(User::class, 'project_users');
+    }
+
     public function getFormattedStatusAttribute() {
         return strtoupper(str_replace('_', ' ', $this->status));
     }
