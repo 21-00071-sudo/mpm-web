@@ -23,6 +23,25 @@ class ProjectController extends Controller
         return view('projects.edit', ['project' => $project]);
     }
 
+    public function update(Request $request, Project $project) {
+
+        $rules = [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'deadline' => 'required|date',
+        ];
+
+        if ($request->deadline !== $project->deadline?->format('Y-m-d')) {
+            $rules['deadline'] = 'required|date|after:today';
+        }
+
+        $validatedData = $request->validate($rules);
+
+        $project->update($validatedData);
+
+        return redirect()->route('projects.show', $project)->with('success', 'Project updated');
+    }
+
     public function updateStatus(Request $request, Project $project) {
         
         $project->status = 'completed';

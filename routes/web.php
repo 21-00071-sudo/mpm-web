@@ -13,8 +13,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
-Route::get('project/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
 Route::post('/projects/{project}/complete', [ProjectController::class, 'updateStatus'])->name('projects.complete');
 Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
