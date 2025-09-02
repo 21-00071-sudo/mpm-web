@@ -15,8 +15,8 @@
 
         <div class="flex flex-wrap -mx-2 gap-4">
             @foreach ($projects as $project)
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] flex flex-col min-h-[230px]">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] flex flex-col min-h-[230px] transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-lg cursor-pointer"
+                    onclick="window.location.href='{{ route('projects.show', $project) }}'">
                     <div class="p-6 flex-1">
                         <h2 class="text-xl font-bold text-gray-800 mb-2">
                             {{ $project->title }}
@@ -30,10 +30,6 @@
                                 {{ $project->formatted_status }}
                             </span>
                         </div>
-                        <a href={{ route('projects.show', $project->id) }}
-                            class="w-full text-center bg-red-500 text-white font-semibold py-2 px-4 rounded-md inline-block hover:bg-red-600 transition-colors">
-                            Select
-                        </a>
                     </div>
                 </div>
             @endforeach

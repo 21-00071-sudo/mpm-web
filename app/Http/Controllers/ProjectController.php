@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Project;
 
 class ProjectController extends Controller
@@ -28,16 +29,32 @@ class ProjectController extends Controller
         return view('projects.edit', ['project' => $project]);
     }
 
+    public function store(Request $request) {
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:255|min:10',
+            'description' => 'nullable|string|max:1000',
+            'deadline' => 'required|date|after_or_equal:today',
+            'status' => 'in_progress',
+        ]);
+
+        $validated['user_id'] = Auth::id();
+
+        Project::create($validated);
+
+        return redirect()->route('projects.index')->with('success', 'Project created');
+    }
+
     public function update(Request $request, Project $project) {
 
         $rules = [
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'deadline' => 'required|date',
+            'title' => 'required|string|max:255|min:10',
+            'description' => 'nullable|string|max:1000',
+            'deadline' => 'required|date'
         ];
 
         if ($request->deadline !== $project->deadline?->format('Y-m-d')) {
-            $rules['deadline'] = 'required|date|after:today';
+            $rules['deadline'] = 'required|date|after_or_equal:today';
         }
 
         $validatedData = $request->validate($rules);

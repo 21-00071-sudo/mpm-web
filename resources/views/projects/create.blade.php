@@ -9,7 +9,8 @@
     </div>
 
     <div class="flex justify-center items-center">
-        <form action="" method="POST" class="bg-white flex flex-col rounded-lg shadow-md w-1/2 p-6 gap-4 mt-4">
+        <form action={{ route('projects.store') }} method="POST"
+            class="bg-white flex flex-col rounded-lg shadow-md w-1/2 p-6 gap-4 mt-4">
             @csrf
 
             <div class="flex flex-col w-auto">
