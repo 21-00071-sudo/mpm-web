@@ -18,6 +18,11 @@ class ProjectController extends Controller
         return view('projects.show', ['project' => $project]);
     }
 
+    public function create() {
+        
+        return view('projects.create');
+    }
+
     public function edit(Project $project) {
 
         return view('projects.edit', ['project' => $project]);

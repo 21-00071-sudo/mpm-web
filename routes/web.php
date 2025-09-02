@@ -13,6 +13,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::Get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
 Route::get('projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
 Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
