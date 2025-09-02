@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProjectUserController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,8 @@ Route::post('/projects', [ProjectController::class, 'store'])->name('projects.st
 Route::post('/projects/{project}/complete', [ProjectController::class, 'updateStatus'])->name('projects.complete');
 Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
 Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
+Route::get('/project-users/{project}', [ProjectUserController::class, 'index'])->name('project-users.index');
 
 Route::view('/tasks', 'tasks.index')->name('tasks.index');
 Route::view('/files', 'files.index')->name('files.index');

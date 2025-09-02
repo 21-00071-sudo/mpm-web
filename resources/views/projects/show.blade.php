@@ -70,7 +70,13 @@
 
             {{-- TODO: Replace with actual content --}}
             <div class="bg-white rounded-xl shadow-md p-6 w-1/3">
-                <h1 class="font-semibold text-xl">Members</h1>
+                <div class="flex justify-between items-center">
+                    <h1 class="font-semibold text-xl">Members</h1>
+                    <a href={{ route('project-users.index', $project->id) }}
+                        class="text-red-500 hover:text-red-600 text-sm font-medium">
+                        Manage Members
+                    </a>
+                </div>
 
                 <hr class="my-4">
                 <ul class="space-y-2">
