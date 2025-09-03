@@ -14,9 +14,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-    
-    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create')->middleware('is_admin_or_staff');
     Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+    
+    Route::view('/tasks', 'tasks.index')->name('tasks.index');
+    Route::view('/files', 'files.index')->name('files.index');
+});
+
+Route::middleware('is_admin_or_staff')->group(function() {
     Route::get('projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
     Route::post('/projects/{project}/complete', [ProjectController::class, 'updateStatus'])->name('projects.complete');
@@ -26,9 +31,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/project-users/{project}', [ProjectUserController::class, 'index'])->name('project-users.index');
     Route::post('/project-users', [ProjectUserController::class, 'store'])->name('project-users.store');
     Route::delete('/project-users/{project}/{user}', [ProjectUserController::class, 'destroy'])->name('project-users.destroy');    
-    
-    Route::view('/tasks', 'tasks.index')->name('tasks.index');
-    Route::view('/files', 'files.index')->name('files.index');
 });
 
 Route::middleware('is_admin')->group(function() {
