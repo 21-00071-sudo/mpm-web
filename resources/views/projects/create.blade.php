@@ -15,7 +15,7 @@
 
             <div class="flex flex-col w-auto">
                 <label for="title" class="text-lg font-semibold text-gray-700">Project Title</label>
-                <input type="text" id="title" name="title" required value=""
+                <input type="text" id="title" name="title" required value="" minlength="10"
                     class="bg-gray-100 rounded-md border border-gray-300 h-10 px-3 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-colors">
             </div>
             <div class="flex flex-col w-auto">

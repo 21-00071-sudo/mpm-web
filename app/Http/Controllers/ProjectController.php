@@ -12,6 +12,8 @@ class ProjectController extends Controller
         $userId = Auth::id();
         $user = Auth::user();
 
+        Project::updateOverdueProjects();
+
         if($user->role !== 'student') {
 
             $projects = Project::orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);

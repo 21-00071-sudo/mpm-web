@@ -34,6 +34,13 @@ class Project extends Model
         return $this->hasMany(ProjectUser::class);
     }
 
+    public function scopeUpdateOverdueProjects($query) {
+        
+        return $query->where('deadline', '<', now())
+                     ->whereNotIn('status', ['delayed', 'completed'])
+                     ->update(['status' => 'delayed']);
+    }
+
     public function scopeForUser($query, $userId) {
         return $query->where(function($query) use ($userId) {
             $query->where('user_id', $userId)
