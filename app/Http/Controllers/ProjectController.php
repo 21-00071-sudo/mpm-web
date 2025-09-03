@@ -10,8 +10,16 @@ class ProjectController extends Controller
 {
     public function index() {
         $userId = Auth::id();
+        $user = Auth::user();
 
-        $projects = Project::forUser($userId)->orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);
+        if($user->role !== 'student') {
+
+            $projects = Project::orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);
+        }else {
+
+            $projects = Project::forUser($userId)->orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);
+        }
+
 
         return view('projects.index', ['projects' => $projects]);
     }
