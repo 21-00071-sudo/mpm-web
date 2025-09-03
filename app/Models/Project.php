@@ -30,6 +30,10 @@ class Project extends Model
         return $this->belongsToMany(User::class, 'project_users');
     }
 
+    public function projectUsers() {
+        return $this->hasMany(ProjectUser::class);
+    }
+
     public function scopeForUser($query, $userId) {
         return $query->where(function($query) use ($userId) {
             $query->where('user_id', $userId)

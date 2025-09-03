@@ -39,7 +39,7 @@
                                     <span class="text-gray-700 font-medium">{{ $user->name }}</span>
                                 </div>
                                 <button type="submit" class="p-2 rounded-full hover:bg-red-100 transition-colors">
-                                    <i class="fa-solid fa-user-plus text-red-500 hover:text-red-600"></i>
+                                    <i class="fa-solid fa-plus text-red-500 hover:text-red-600"></i>
                                 </button>
                             </li>
                         </form>
@@ -52,18 +52,27 @@
             <h1 class="text-xl font-semibold mb-4">Project Members</h1>
             <ul class="divide-y divide-gray-200 max-h-80 min-h-80 overflow-y-auto pr-2">
                 @foreach ($assignedUsers as $user)
-                    <li class="flex items-center justify-between py-3">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="px-3 py-1 min-w-16 text-center text-xs font-medium rounded-full bg-gray-100 text-gray-800">
-                                {{ $user->role }}
-                            </span>
-                            <span class="text-gray-700 font-medium">{{ $user->name }}</span>
-                        </div>
-                        <button class="p-2 rounded-full hover:bg-red-100 transition-colors">
-                            <i class="fa-solid fa-trash text-red-500 hover:text-red-600"></i>
-                        </button>
-                    </li>
+                    <form action={{ route('project-users.destroy', ['project' => $project->id, 'user' => $user->id]) }}
+                        method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="hidden" name={{ $project->id }}>
+                        <input type="hidden" name={{ $user->id }}>
+
+                        <li class="flex items-center justify-between py-3">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="px-3 py-1 min-w-16 text-center text-xs font-medium rounded-full bg-gray-100 text-gray-800">
+                                    {{ $user->role }}
+                                </span>
+                                <span class="text-gray-700 font-medium">{{ $user->name }}</span>
+                            </div>
+                            <button type="submit" class="p-2 rounded-full hover:bg-red-100 transition-colors">
+                                <i class="fa-solid fa-trash text-red-500 hover:text-red-600"></i>
+                            </button>
+                        </li>
+                    </form>
                 @endforeach
             </ul>
         </div>

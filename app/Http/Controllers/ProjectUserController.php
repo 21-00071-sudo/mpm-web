@@ -39,7 +39,20 @@ class ProjectUserController extends Controller
         return redirect()->route('project-users.index', $project)->with('success', 'User added to the Project');
     }
 
-    public function destroy(ProjectUser $project_user) {
+    public function destroy(Request $request, $project_id, $user_id) {
+        /*  $validated = $request->validate([
+            'project_id' => 'required|exists:projects,id',
+            'user_id' => 'required|exists:user,id',
+        ]);
 
+        $projectUser = ProjectUser::where('project_id', $validated['project_id'])->where('user_id', $validated['user_id'])->first(); */
+        $user = User::findOrFail($user_id);
+        $project = Project::findOrFail($project_id);
+        
+        $projectUser = ProjectUser::where('project_id', $project_id)->where('user_id', $user_id)->firstOrFail();
+
+        $projectUser->delete();
+
+        return redirect()->route('project-users.index', $project)->with('success', 'User remove to the Project');
     }
 }
