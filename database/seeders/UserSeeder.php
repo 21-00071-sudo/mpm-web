@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'John Doe',
             'email' => 'johndoe@email.com',
             'username' => 'admin',
-            'password' => 'adminpassword',
+            'password' => 'admin123',
             'role' => 'admin',
         ]);
 
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'name' => 'Jane Doe',
             'email' => 'juandelacruz@email.com',
             'username' => 'staff',
-            'password' => 'staffpassword',
+            'password' => 'staff123',
             'role' => 'staff',
         ]);
 
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'name' => 'Foo Bar',
             'email' => 'foobar@email.com',
             'username' => 'student',
-            'password' => 'studentpassword',
+            'password' => 'student123',
             'role' => 'student',
         ]);
     }
