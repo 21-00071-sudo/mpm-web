@@ -30,6 +30,15 @@ class Project extends Model
         return $this->belongsToMany(User::class, 'project_users');
     }
 
+    public function scopeForUser($query, $userId) {
+        return $query->where(function($query) use ($userId) {
+            $query->where('user_id', $userId)
+                ->orWhereHas('users', function($subQuery) use ($userId) {
+                    $subQuery->where('user_id', $userId);
+                });
+        });
+    }
+
     public function getFormattedStatusAttribute() {
         return strtoupper(str_replace('_', ' ', $this->status));
     }
