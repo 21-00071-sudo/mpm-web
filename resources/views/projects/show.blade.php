@@ -68,8 +68,7 @@
                 </ul>
             </div>
 
-            {{-- TODO: Replace with actual content --}}
-            <div class="bg-white rounded-xl shadow-md p-6 w-1/3">
+            <div class="bg-white rounded-xl shadow-md p-6 w-1/3 max-h-60 pr-4 overflow-y-auto">
                 <div class="flex justify-between items-center">
                     <h1 class="font-semibold text-xl">Members</h1>
                     @if (Auth::user()->role !== 'student')

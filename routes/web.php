@@ -23,12 +23,13 @@ Route::middleware('auth')->group(function() {
     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
     
-    Route::get('/project-users/{project}', [ProjectUserController::class, 'index'])->name('project-users.index');    
+    Route::get('/project-users/{project}', [ProjectUserController::class, 'index'])->name('project-users.index');
+    Route::post('/project-users', [ProjectUserController::class, 'store'])->name('project-users.store');
+    // Route::delete('/projects-users/{project-users}', [ProjectUserController::class, 'destroy'])->name('project-user.destroy');    
     
     Route::view('/tasks', 'tasks.index')->name('tasks.index');
     Route::view('/files', 'files.index')->name('files.index');
 });
-
 
 Route::middleware('is_admin')->group(function() {
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

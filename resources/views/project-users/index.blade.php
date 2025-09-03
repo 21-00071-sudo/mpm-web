@@ -14,20 +14,37 @@
         <div class="bg-white shadow-md rounded-xl p-6 w-1/3">
             <h1 class="text-xl font-semibold mb-4">Available Users</h1>
             <ul class="divide-y divide-gray-200 max-h-80 min-h-80 overflow-y-auto pr-2">
-                @foreach ($users as $user)
-                    <li class="flex items-center justify-between py-3">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="px-3 py-1 text-xs min-w-16 text-center font-medium rounded-full bg-gray-100 text-gray-800">
-                                {{ $user->role }}
-                            </span>
-                            <span class="text-gray-700 font-medium">{{ $user->name }}</span>
+                @if ($availableUsers->isEmpty())
+                    <li class="flex items-center justify-center py-8">
+                        <div class="text-center text-gray-500">
+                            <i class="fa-solid fa-users text-4xl mb-3 text-gray-300"></i>
+                            <p class="text-lg font-medium">No available users</p>
+                            <p class="text-sm">All users have already been added to this project.</p>
                         </div>
-                        <button class="p-2 rounded-full hover:bg-red-100 transition-colors">
-                            <i class="fa-solid fa-user-plus text-red-500 hover:text-red-600"></i>
-                        </button>
                     </li>
-                @endforeach
+                @else
+                    @foreach ($availableUsers as $user)
+                        <form action={{ route('project-users.store') }} method="POST">
+                            @csrf
+
+                            <input type="hidden" name="project_id" value={{ $project->id }}>
+                            <input type="hidden" name="user_id" value={{ $user->id }}>
+
+                            <li class="flex items-center justify-between py-3">
+                                <div class="flex items-center gap-3">
+                                    <span
+                                        class="px-3 py-1 text-xs min-w-16 text-center font-medium rounded-full bg-gray-100 text-gray-800">
+                                        {{ $user->role }}
+                                    </span>
+                                    <span class="text-gray-700 font-medium">{{ $user->name }}</span>
+                                </div>
+                                <button type="submit" class="p-2 rounded-full hover:bg-red-100 transition-colors">
+                                    <i class="fa-solid fa-user-plus text-red-500 hover:text-red-600"></i>
+                                </button>
+                            </li>
+                        </form>
+                    @endforeach
+                @endif
             </ul>
         </div>
 
