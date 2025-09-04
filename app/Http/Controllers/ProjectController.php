@@ -16,10 +16,14 @@ class ProjectController extends Controller
 
         if($user->role !== 'student') {
 
-            $projects = Project::orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);
+            $projects = Project::orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")
+                                    ->orderBy('deadline', 'asc')
+                                    ->paginate(6);
         }else {
 
-            $projects = Project::forUser($userId)->orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")->paginate(6);
+            $projects = Project::forUser($userId)->orderByRaw("FIELD(status, 'delayed', 'in_progress', 'completed')")
+                                                 ->orderBy('deadline', 'asc')
+                                                 ->paginate(6);
         }
 
 
