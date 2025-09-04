@@ -12,7 +12,8 @@
                 <div class="flex flex-col p-6 rounded-lg shadow-lg w-full bg-white">
                     <div class="flex items-center justify-between gap-4 mb-6">
                         <h1 class="text-xl font-semibold">{{ $project->title }}</h1>
-                        <a href="#" class="text-md font-medium text-red-500 hover:text-red-600">Manage Tasks</a>
+                        <a href={{ route('tasks.manage', $project->id) }}
+                            class="text-md font-medium text-red-500 hover:text-red-600">Manage Tasks</a>
                     </div>
 
                     {{-- TODO: Replace task placeholder with actual data from the database --}}

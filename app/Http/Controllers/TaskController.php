@@ -24,6 +24,13 @@ class TaskController extends Controller
             $projects = Project::forUser($userId)->orderBy('deadline', 'asc')->get();
         }
 
+        // TODO: Fetch and display tasks belonging to the selected project
+
         return view('tasks.index', ['projects' => $projects]);
+    }
+
+    public function manage(Project $project) {
+
+        return view('tasks.manage', ['project' => $project]);
     }
 }

@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function() {
     Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
     
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+    Route::get('/tasks/{project}', [TaskController::class, 'manage'])->name('tasks.manage');
     Route::view('/files', 'files.index')->name('files.index');
 });
 
