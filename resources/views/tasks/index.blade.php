@@ -18,6 +18,7 @@
 
                     {{-- TODO: Replace task placeholder with actual data from the database --}}
                     <div class="flex gap-4">
+                        {{-- NOTE: Limit to 3 tasks – filter by nearest deadline or overdue --}}
                         <div
                             class="flex flex-col flex-1 p-6 bg-white rounded-md shadow-md transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-lg cursor-pointer">
                             <h1 class="text-lg font-semibold text-gray-700">Task 1</h1>

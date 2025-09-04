@@ -6,4 +6,6 @@
             Hello, {{ $user->name }}!
         </h1>
     </div>
+
+    {{-- TODO: Add analytics dashboard with KPIs and charts for projects, tasks, and files --}}
 @endsection

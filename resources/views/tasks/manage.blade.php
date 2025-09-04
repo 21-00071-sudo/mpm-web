@@ -7,4 +7,6 @@
             class="fa fa-angle-right"></i><a href="#"
             class="hover:text-gray-600 hover:underline transition-colors duration-200">Manage Tasks</a>
     </div>
+
+    {{-- TODO: Display all tasks and implement CRUD with user assignment --}}
 @endsection
