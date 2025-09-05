@@ -110,9 +110,9 @@ A centralized web platform for managing office projects, tasks, and documents. S
     ```sh
     php artisan db:seed
     ```
--   Clear application cache:
+-   Clear all cached data:
     ```sh
-    php artisan cache:clear
+    php artisan optimize:clear
     ```
 
 ### Start Application
@@ -124,9 +124,12 @@ A centralized web platform for managing office projects, tasks, and documents. S
     ```
 
 -   Wait until you see output similar to:
+
     ```sh
      ➜  APP_URL: https://mpm-web.test
     ```
+
+-   Access the website by typing `mpm-web.test` in your browser (Laragon's local domain)
 
 ### Test Login Credentials
 
