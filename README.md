@@ -11,6 +11,10 @@
     -   [Project Setup](#project-setup)
     -   [Database Setup](#database-setup)
     -   [Start Application](#start-application)
+    -   [Test Login Credentials](#test-login-credentials)
+-   [Current Features & Development Status](#current-features--development-status)
+-   [Maintenance & Administration](#maintenance--administration)
+-   [Troubleshooting & Tips](#troubleshooting--tips)
 
 # Overview
 
@@ -72,7 +76,7 @@ A centralized web platform for managing office projects, tasks, and documents. S
 -   Clone the repository:
     ```sh
     git clone [your-repository-url]
-    cd [project-folder-name]
+    cd mpm-web
     ```
 -   Update Laravel Installer:
     ```sh
@@ -105,7 +109,6 @@ A centralized web platform for managing office projects, tasks, and documents. S
     ```sh
     php artisan db:seed
     ```
-    **Note:** The seeder creates dummy accounts for 3 user roles, plus sample projects and tasks (see `database/seeders/`). For production, consider removing or modifying seeders to avoid preset data, though keeping admin accounts may be acceptable for initial setup.
 
 ### Start Application
 
@@ -119,3 +122,66 @@ A centralized web platform for managing office projects, tasks, and documents. S
     ```sh
      ➜  APP_URL: https://mpm-web.test
     ```
+
+### Test Login Credentials
+
+Use these dummy accounts to access the application:
+
+-   **Role:** username / password
+-   **Admin:** `admin` / `admin123`
+-   **Staff:** `staff` / `staff123`
+-   **Student:** `student` / `student123`
+
+# Current Features & Development Status
+
+### Working Features
+
+-   User login system
+-   Basic CRUD for projects
+-   Assigning members to projects
+-   Navigation for different system sections
+-   User management CRUD
+-   Auto-generation of username and password for user accounts
+
+### Planned/Incomplete Features
+
+-   Mobile responsive design
+-   Forgot password functionality
+-   User profile image upload
+-   Task management CRUD and member assignment
+-   File attachment system for completed tasks
+-   Folder structure for file management
+-   Mandatory password change on initial login
+-   Dashboard with metrics and charts (projects, tasks, files, users)
+
+**Note:** Development has been paused. Future developers may modify, add, or remove planned features on project requirements and priorities
+
+# Maintenance & Administration
+
+### Regular Tasks
+
+-   **Backup:** Laragon → Database → Export
+-   **Updates:** `composer update `and `npm update`
+-   **Cleanup:** Remove inactive users, unused files, clear cache with `php artisan cache:clear`
+-   **Monitor:** Check `storage/logs/laravel.log` for errors
+
+### Production Notes
+
+-   Remove seeders, set `APP_DEBUG=false`, configure SSL, implement backup schedules
+    **Note:** The seeder creates dummy accounts for 3 user roles, plus sample projects and
+    tasks (see `database/seeders/`). For production, consider removing or modifying seeders
+    to avoid preset data, though keeping admin accounts may be acceptable for initial setup.
+
+# Troubleshooting & Tips
+
+### Common Fixes
+
+-   **Services won't start:** Run Laragon as administrator, check port conflicts
+-   **Migration errors:** Check `.env` database settings
+-   **Cache issues:** `php artisan optimize:clear`
+-   **Storage errors:** `php artisan storage:link`
+
+### Quick Tips
+
+-   Backup before changes, check `storage/logs/laravel.log` for errors
+    **Note:**The seeder creates dummy accounts for 3 user roles, plus sample projects and tasks (see database/seeders/). For production, consider removing or modifying seeders to avoid preset data, though keeping admin accounts may be
