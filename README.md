@@ -85,6 +85,7 @@ A centralized web platform for managing office projects, tasks, and documents. S
 -   Update Composer dependencies:
     ```sh
     composer self-update 2.8.10
+    composer update
     ```
 -   Install NPM packages:
     ```sh
@@ -108,6 +109,10 @@ A centralized web platform for managing office projects, tasks, and documents. S
 -   Run database seeding(populates tables with initial data):
     ```sh
     php artisan db:seed
+    ```
+-   Clear application cache:
+    ```sh
+    php artisan cache:clear
     ```
 
 ### Start Application
