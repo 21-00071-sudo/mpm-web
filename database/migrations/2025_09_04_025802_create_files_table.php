@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('folder_id')->constrained()->nullable()->onDelete('set null');
-            $table->foreignId('uploaded_by')->constrained('users')->onDelete('set null');
-            $table->foreignId('task_id')->constrained()->onDelete('set null');
+            $table->foreignId('folder_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('task_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->text('path');

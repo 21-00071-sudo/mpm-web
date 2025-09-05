@@ -80,7 +80,7 @@ A centralized web platform for managing office projects, tasks, and documents. S
     ```
 -   Update Composer dependencies:
     ```sh
-    composer update
+    composer self-update 2.8.10
     ```
 -   Install NPM packages:
     ```sh
@@ -93,6 +93,10 @@ A centralized web platform for managing office projects, tasks, and documents. S
 -   Create `.env` file and copy contents from `.env.example`
 -   Configure database settings `.env` file:
     -   **DB_HOST**, **DB_PORT**, **DB_DATABASE**, **DB_USERNAME**, (get values from Laragon -> Database)
+-   Generate Laravel application key:
+    ```sh
+    php artisan key:generate
+    ```
 -   Run database migrations:
     ```sh
     php artisan migrate
